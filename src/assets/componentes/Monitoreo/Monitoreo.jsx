@@ -32,7 +32,7 @@ const Main = Styled.main`
     flex-direction: row;
     flex: 1;
     padding: 1rem;
-    padding-top: calc(170px + 1rem);
+    padding-top: calc(110px + 1rem);
     gap: 5rem;
 `;
 
@@ -229,7 +229,7 @@ function Monitoreo(){
                     
                 </Aside_Card>
             </Main>
-    
+           
             <Footer>
                 <h2>Colmenares del Eje</h2>
                 <p>@2025 Todos los derechos reservados</p>

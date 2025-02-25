@@ -6,8 +6,7 @@ const breakpoints = {
     desktop: '1024px'
   };
 
-
-const Aside = styled.aside`
+  const Aside = styled.aside`
   background-color: white;
   border-radius: 10px;
   padding: 20px;
@@ -18,12 +17,17 @@ const Aside = styled.aside`
   gap: 15px;
   border: 1px solid gray;
   font-size: 1.2rem;
-  mIN-width: 350px;
+  width: 100%;
+  max-width: 400px; // Añadir un ancho máximo
   margin: 0 auto;
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.25);
-  height: 36rem;
+  height: auto; // Usar auto en lugar de 0
+  min-height: 550px;
+  max-height: 800px;
   @media (min-width: ${breakpoints.tablet}) {
-    flex: 1;
+    flex: 0 0 auto; // No crecer, no encogerse, usar tamaño base
+    width: 100%;
+    max-width: 346px; // Igualar al max-width de tu componente Monitoreo
     font-size: 1.6rem;
     margin: 0;
   }

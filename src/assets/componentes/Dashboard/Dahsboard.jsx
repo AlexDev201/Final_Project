@@ -49,7 +49,7 @@ const Main = styled.main`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-
+  
   @media (min-width: ${breakpoints.tablet}) {
     flex: 2;
     margin: 0;
@@ -59,7 +59,7 @@ const Main = styled.main`
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   padding: 10px;
   margin-top: 10px;
@@ -70,7 +70,7 @@ const Container = styled.div`
 
   
   @media (min-width: ${breakpoints.tablet}) {
-    flex-direction: row;
+    align-items: flex-start;
     padding: 20px;
     margin-top: 0;
   }

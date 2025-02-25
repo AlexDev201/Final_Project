@@ -33,16 +33,17 @@ const Logo = Styled.img`
 
 const Main = Styled.main`
     display: flex;
-    justify-content: center;
+    justify-content: space-beetwen;
     flex: 1;
+    flex-direction: row;
     background: radial-gradient(circle, white, white);
     padding: 1rem;
     gap: 2rem;
     margin: auto;
     max-width: 1000px;
     padding-top: calc(120px + 1rem);
-    flex-wrap: wrap;
-
+    flex-wrap: no-wrap;
+    align-items: flex-start;
     @media (max-width: ${breakpoints.laptop}) {
         flex-direction: column;
         align-items: center;
@@ -61,13 +62,13 @@ const FormContainer = Styled.div`
     padding: 1.5rem;
     width: 450px;
     min-height: 600px;
-    height: 100%;
+    height: 52rem;
     border: 1px solid grey;
     margin: 0;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
-    
+    flex: 0 0 auto;
     @media (max-width: ${breakpoints.tablet}) {
         width: 95%;
         max-width: 450px;
