@@ -218,6 +218,7 @@ function EditColmena() {
     const [formData, setFormData] = useState({
          cantidadCriasAbierta : '',
          cantidadCriasOperculada : '',
+         cuadrosComida: '',
          presenciaReina : '',
          colorReina : '',
          origenReina: '',
@@ -230,6 +231,53 @@ function EditColmena() {
            [name]: value
          }));
        };
+
+
+           // Función de validación principal simplificada
+const validateForm = (formData) => {
+    let errors = {};
+    let isValid = true;
+  
+    // Validación para cantidadCriasAbierta (formato y rango)
+    if (formData.cantidadCriasAbierta && !/^\d+(\.\d{1,2})?$/.test(formData.cantidadCriasAbierta)) {
+      errors.cantidadCriasAbierta = "Ingrese un número válido (hasta 2 decimales)";
+      isValid = false;
+    } else if (formData.cantidadCriasAbierta && (parseFloat(formData.cantidadCriasAbierta) < 0 || parseFloat(formData.cantidadCriasAbierta) > 100)) {
+      errors.cantidadCriasAbierta = "El valor debe estar entre 0 y 100";
+      isValid = false;
+    }
+  
+    // Validación para cantidadCriasOperculada (formato y rango)
+    if (formData.cantidadCriasOperculada && !/^\d+(\.\d{1,2})?$/.test(formData.cantidadCriasOperculada)) {
+      errors.cantidadCriasOperculada = "Ingrese un número válido (hasta 2 decimales)";
+      isValid = false;
+    } else if (formData.cantidadCriasOperculada && (parseFloat(formData.cantidadCriasOperculada) < 0 || parseFloat(formData.cantidadCriasOperculada) > 100)) {
+      errors.cantidadCriasOperculada = "El valor debe estar entre 0 y 100";
+      isValid = false;
+    }
+  
+    // Validación para cuadrosComida (formato y rango)
+    if (formData.cuadrosComida && !/^\d+(\.\d{1,2})?$/.test(formData.cuadrosComida)) {
+      errors.cuadrosComida = "Ingrese un número válido (hasta 2 decimales)";
+      isValid = false;
+    } else if (formData.cuadrosComida && (parseFloat(formData.cuadrosComida) < 0 || parseFloat(formData.cuadrosComida) > 100)) {
+      errors.cuadrosComida = "El valor debe estar entre 0 y 100";
+      isValid = false;
+    }
+  
+    // Validación para reportesGenerales (longitud y caracteres permitidos)
+    if (formData.reportesGenerales && formData.reportesGenerales.length > 500) {
+      errors.reportesGenerales = "Máximo 500 caracteres";
+      isValid = false;
+    } else if (formData.reportesGenerales && !/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s.,()-]+$/.test(formData.reportesGenerales)) {
+      errors.reportesGenerales = "Caracteres no permitidos";
+      isValid = false;
+    }
+  
+    return { isValid, errors };
+  };
+
+
  
        const handleSubmit =  async (e) => {
          e.preventDefault();
@@ -300,7 +348,8 @@ function EditColmena() {
                     onChange={handleChange}
                     required
                 />
-                
+                {errors.cantidadCriasAbierta && <div style={{color: 'red', fontSize: '0.8rem'}}>{errors.cantidadCriasAbierta}</div>}
+
                 <Label>Cantidad de Cuadros de Cria Operculada</Label>
                 <Input
                     type='number'
@@ -310,7 +359,8 @@ function EditColmena() {
                     onChange={handleChange}
                     required
                 />
-                
+                {errors.cantidadCriasAbierta && <div style={{color: 'red', fontSize: '0.8rem'}}>{errors.cantidadCriasAbierta}</div>}
+
                 <Label>Presencia de la Reina</Label>
                 <Select
                     name='presenciaReina'
